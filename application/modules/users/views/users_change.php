@@ -1,4 +1,20 @@
 <div class="span4">
+<img src="<?php base_url() ?>/upload/avatar_default.jpg" alt="Onovni avatar" />
+<br /><br/>
+
+<?php echo form_open_multipart('upload/do_upload');?>
+<p class="email">
+<input type="file" name="userfile" size="20" />
+</p>
+<br />
+<p class="submit">
+<input type="submit" value="upload" />
+</p>
+</form>
+
+</div>
+
+<div class="span4">
 <?php foreach($profil->result() as $row){
 	$form = array(
 	'class' => 'form prostor',
@@ -91,3 +107,4 @@
 	
 	} ?>
 	</div>
+	<div class="span4"></div>
