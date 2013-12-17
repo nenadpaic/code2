@@ -1,5 +1,11 @@
-<div class="span4">
-<img src="<?php base_url() ?>/upload/avatar_default.jpg" alt="Onovni avatar" />
+<div class="span4 text-center">
+<h3>Avatar upload</h3><hr>
+<?php foreach($profil->result() as $row){ 
+	if(is_file(FCPATH."upload/$row->id.png")){?>
+	<img class="img-polaroid" src='<?php  base_url() ?>/upload/<?php echo $row->id ?>.png' alt="profilni avatar" />
+	<?php }else{ ?>
+<img class="img-polaroid" src="<?php base_url() ?>/upload/avatar_default.jpg" alt="Onovni avatar" />
+<?php } ?>
 <br /><br/>
 
 <?php echo form_open_multipart('upload/do_upload');?>
@@ -15,7 +21,8 @@
 </div>
 
 <div class="span4">
-<?php foreach($profil->result() as $row){
+<h3>Profilni podaci</h3><hr>
+<?php 
 	$form = array(
 	'class' => 'form prostor',
 	'id' => 'forma'
@@ -107,4 +114,7 @@
 	
 	} ?>
 	</div>
-	<div class="span4"></div>
+	<div class="span4">
+		<h3>Promena passworda</h3><hr>
+
+	</div>
