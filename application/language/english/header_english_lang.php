@@ -1,0 +1,19 @@
+<?php
+$lang['pocetna'] = 'Home';
+$lang['oMeni'] = 'About me';
+$lang['usluge'] = 'Services';
+$lang['portfolio'] = 'Portfolio';
+$lang['shop'] = 'Shop';
+$lang['kontakt'] = 'Contact me';
+$lang['banner_h1_1'] ='Do you want modern and nice looking <strong>website</strong>?';
+$lang['banner_h4_1'] = 'We can find solution which responds to your needs, and saving your money.';
+$lang['button_banner_1'] ='Get started';
+$lang['banner_h1_2'] ='I build fast and <strong>secure applications</strong> ';
+$lang['banner_h4_2'] = 'Do you need fast and secure website? I have solution';
+$lang['button_banner_2'] ='Get started';
+$lang['banner_h1_3'] ='<strong>SEO optimized</strong>';
+$lang['banner_h4_3'] = 'Dont worry, my applications meet all technical conditions to be good positioned on search engines.';
+$lang['button_banner_3'] ='Get started';
+$lang['banner_h1_4'] ='<strong>Support</strong> in any time';
+$lang['banner_h4_4'] = 'For all users of my applications support is granted in any time';
+$lang['button_banner_4'] ='Get started';

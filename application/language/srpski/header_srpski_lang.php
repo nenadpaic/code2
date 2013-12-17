@@ -1,0 +1,19 @@
+<?php
+$lang['pocetna'] = 'Pocetna';
+$lang['oMeni'] = 'O meni';
+$lang['usluge'] = 'Usluge';
+$lang['portfolio'] = 'Portfolio';
+$lang['shop'] = 'Shop';
+$lang['kontakt'] = 'Kontaktiraj me';
+$lang['banner_h1_1'] ='Zelite li moderan i lep <strong>web sajt?</strong> ';
+$lang['banner_h4_1'] = 'Pronadjimo resenje koje odgovara vasim potrebama, i vasem novcaniku. ';
+$lang['button_banner_1'] ='Saznaj vise';
+$lang['banner_h1_2'] ='Ja gradim brze i <strong>sigurne aplikacije</strong> ';
+$lang['banner_h4_2'] = 'Treba li vam brz i bezbedan web sajt? Ja imam resenje';
+$lang['button_banner_2'] ='Saznaj vise';
+$lang['banner_h1_3'] ='<strong>SEO optimizovan</strong> kod';
+$lang['banner_h4_3'] = 'Ne brinite, moje aplikacije zadovoljavaju sve tehnicke uslove da budete dobro pozicionirani na pretrazivacima.';
+$lang['button_banner_3'] ='Saznaj vise';
+$lang['banner_h1_4'] ='<strong>Podrska</strong> u svako doba';
+$lang['banner_h4_4'] = 'Svim korisnicima mojih aplikacija zagarantovana je podrska u svako doba';
+$lang['button_banner_4'] ='Saznaj vise';
