@@ -71,7 +71,8 @@
 		type:'get',
 		data:{
 				id_s: id,
-				email_s: email
+				email_s: email,
+				language: lang
 				
 		},
 		success:function(data){

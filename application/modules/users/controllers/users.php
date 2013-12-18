@@ -126,9 +126,9 @@ function profile(){
 			echo Modules::run('template/javnaSekcija', $data);
 }
 function change_profil(){
-	$user_lagnguage = $this->session->userdata('language');
+	$data['user_lagnguage']= $this->session->userdata('language');
 
-		$this->lang->load('login_'. $user_lagnguage,$user_lagnguage);
+		
 	if($this->input->is_ajax_request()){
 		
 	
