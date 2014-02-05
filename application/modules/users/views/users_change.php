@@ -10,9 +10,10 @@
 <?php } ?>
 <br /><br/>
 
-<?php echo form_open_multipart('upload/do_upload');?>
+<?php echo form_open_multipart('users/do_upload');?>
 <p class="email">
 <input type="file" name="userfile" size="20" />
+
 </p>
 <br />
 <p class="submit">
@@ -29,7 +30,7 @@
 	'class' => 'form prostor',
 	'id' => 'forma'
 	);
-	echo form_open('#', $form);
+	echo form_open('users/change_profil_base', $form);
 	?>
 	<p class="email">
 	<?php

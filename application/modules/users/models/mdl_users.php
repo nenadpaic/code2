@@ -90,9 +90,9 @@ $this-db-insert($table, $data);
 }
 
 function _update($id, $data){
-$table = $this-get_table();
-$this-db-where('id', $id);
-$this-db-update($table, $data);
+$table = $this->get_table();
+$this->db->where('id', $id);
+$this->db->update($table, $data);
 }
 
 function _delete($id){

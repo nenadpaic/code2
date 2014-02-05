@@ -1,3 +1,2 @@
 eclipse.preferences.version=1
-include_path=5;org.zend.php.framework.CONTAINER\u00055;com.zend.php.phpunit.CONTAINER\u00050;/nemesis 2
-use_asp_tags_as_php=false
+include_path=0;/nemesis

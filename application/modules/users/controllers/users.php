@@ -47,11 +47,11 @@ function login_validation(){
 	$this->form_validation->set_message('max_length', $this->lang->line('max'));
 	$this->form_validation->set_message('required', $this->lang->line('obavezno'));
 	$this->form_validation->set_message('alpha_numeric', $this->lang->line('alpha_numeric'));
-	
+
 	if($this->form_validation->run($this) == FALSE){
 			$data['module'] = "users";
 			$data['view_file'] = "users_login";
-		
+
 			echo Modules::run('template/javnaSekcija', $data);
 	}else{
 		$this->_store_session($this->input->post('email',TRUE));
@@ -148,4 +148,59 @@ function change_profil(){
 		redirect('users/profile');
 	}
 }
+function change_profil_base(){
+    $this->form_validation->set_rules('ime', 'Ime', 'required|min_length[4]|max_length[20]|xss_clean|trim|alpha');
+	$this->form_validation->set_rules('prezime', 'Prezime', 'required|trim|xss_clean|min_length[4]|max_length[20]|alpha');
+    $this->form_validation->set_rules('adresa', 'Adresa', 'required|trim|xss_clean|min_length[5]|max_length[30]');
+    $this->form_validation->set_rules('grad', 'Grad', 'required|trim|xss_clean|min_length[2]|max_length[30]|alpha');
+    $this->form_validation->set_rules('drzava', 'Drzava', 'required|trim|xss_clean|min_length[2]|max_length[30]|alpha');
+    $this->form_validation->set_rules('zip', 'Zip', 'required|trim|xss_clean|min_length[3]|max_length[10]|numeric');
+    
+
+
+	if($this->form_validation->run($this) == FALSE){
+			$data['module'] = "users";
+			$data['view_file'] = "users_error_profile";
+
+			echo Modules::run('template/javnaSekcija', $data);
+	}else{
+		$id = $this->session->userdata('id');
+		$data['ime'] = $this->input->post('ime', TRUE);
+        $data['prezime'] = $this->input->post('prezime', TRUE);
+        $data['adresa'] = $this->input->post('adresa', TRUE);
+        $data['grad'] = $this->input->post('grad', TRUE);
+        $data['drzava'] = $this->input->post('drzava', TRUE);
+        $data['zip'] = $this->input->post('zip', TRUE);
+        
+        $this->load->model('mdl_users');
+        
+        $this->mdl_users->_update($id, $data);
+        redirect('users/profile');
+	}
+}
+function do_upload(){
+	
+	$config['upload_path'] = "./upload/";
+	$config['allowed_types'] = 'jpg|png';
+	$config['max_size']	= '1024';
+	$config['max_width']  = '100';
+	$config['max_height']  = '100';
+	$config['file_name'] = $this->session->userdata('id');
+	$config['overwrite'] = TRUE;
+	
+	$this->load->library('upload', $config);
+	
+	if ( ! $this->upload->do_upload())
+	{
+		$error = array('error' => $this->upload->display_errors());
+	
+		print_r($error);
+	}
+	else
+	{
+		$data = array('upload_data' => $this->upload->data());
+	
+		$this->load->view('upload_success', $data);
+	}
+	}
 }

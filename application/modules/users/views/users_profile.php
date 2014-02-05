@@ -11,14 +11,14 @@
     <li><a href="#home" id="ho"><?php echo $this->lang->line('obavestenja'); ?></a></li>
     <li><a href="#profile" id="prof"><?php echo $this->lang->line('profil'); ?></a></li>
     <li><a href="#messages" id="mess"><?php echo $this->lang->line('poruke'); ?></a></li>
-    <li><a href="#settings" id="set"><?php echo $this->lang->line('kupljeno'); ?></a></li>
+    
     </ul>
      
     <div class="tab-content">
     <div class="tab-pane active" id="home"><img src="<?php echo base_url() ?>Nemesis Development responsive/img/ajax-loader.gif" alt="ajax-loader" /></div>
     <div class="tab-pane" id="profile"><img src="<?php echo base_url() ?>Nemesis Development responsive/img/ajax-loader.gif" alt="ajax-loader" /></div>
     <div class="tab-pane" id="messages"><img src="<?php echo base_url() ?>Nemesis Development responsive/img/ajax-loader.gif" alt="ajax-loader" /></div>
-    <div class="tab-pane" id="settings"><img src="<?php echo base_url() ?>Nemesis Development responsive/img/ajax-loader.gif" alt="ajax-loader" /></div>
+
     </div>
      
 
@@ -32,19 +32,34 @@
     <script>
 	var base = '<?php echo base_url(); ?>';
 	var lang = '<?php echo $this->session->userdata("language") ?>';
-	
-	
+
+
 	$(function(){
-		
+
 	$('#myTab a:first').tab('show');
 	sadrzaj();
-	
+
 	});
-	
-		
+     function poruke(){
+
+
+	 $.ajax({
+		url:base+'messages/list_messages',
+		type:'get',
+		success:function(data){
+			$('#messages').html(data).fadeIn("fast");
+		},
+		error:function(){
+			$('#messages').html("<p>Trenutno nema poruka</p>").fadeIn("fast");
+		}
+
+
+
+	});}
+
 	function sadrzaj(){
-		
-	
+
+
 	 $.ajax({
 		url:base+'obavestenja/get_obavestenja',
 		type:'get',
@@ -57,15 +72,15 @@
 		error:function(){
 			$('#home').html("<p>Trenutno nema obavestenja</p>").fadeIn("fast");
 		}
-		
-		
-		
+
+
+
 	});}
 	function profil(){
 		var id = '<?php echo $this->session->userdata("id") ?>';
 		var email = '<?php echo $this->session->userdata("email") ?>';
-		
-	
+
+
 	 $.ajax({
 		url:base+'users/change_profil',
 		type:'get',
@@ -114,6 +129,7 @@
 	 $('#mess').click(function (e) {
     e.preventDefault();
     $(this).tab('show');
+    poruke();
 	
     });
     </script>
