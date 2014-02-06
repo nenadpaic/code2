@@ -122,7 +122,7 @@
 
 		<?php 
 
-			echo form_open('#');
+			echo form_open('users/changePass');
 
 				?>
 				<p class="email">

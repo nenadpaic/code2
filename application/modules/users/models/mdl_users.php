@@ -21,6 +21,18 @@ function profil($id, $email){
 	
 	
 }
+function check_pass($id, $pass){
+	$password = $this->salt($pass);
+	$this->db->where('id', $id);
+	$this->db->where('password', $password);
+	$query = $this->db->get('users');
+	if($query->num_rows() == 1){
+		return TRUE;
+	}else{
+		return FALSE;
+	}
+	
+}
 function get_where_join($email){
 	$this->db->where('email', $email);
 	$this->db->join('role', 'role.id = users.role');
@@ -93,6 +105,11 @@ function _update($id, $data){
 $table = $this->get_table();
 $this->db->where('id', $id);
 $this->db->update($table, $data);
+}
+function _update_pass($id, $data){
+	$table = $this->get_table();
+	$this->db->where('id', $id);
+	$this->db->update($table, $data);
 }
 
 function _delete($id){

@@ -203,4 +203,50 @@ function do_upload(){
 		$this->load->view('upload_success', $data);
 	}
 	}
+function changePass(){
+	$this->form_validation->set_rules('old_pass', 'Old_pass', 'required|min_length[4]|max_length[20]|xss_clean|trim|alpha_numeric|callback_check_pass');
+	$this->form_validation->set_rules('new_pass', 'New_pass', 'required|trim|xss_clean|min_length[4]|max_length[20]|alpha_numeric');
+	$this->form_validation->set_rules('conf_pass', 'Conf_pass', 'required|trim|xss_clean|min_length[5]|max_length[30]|alpha_numeric|callback_check_passwords');
+	
+	
+	
+	if($this->form_validation->run($this) == FALSE){
+		$data['module'] = "users";
+		$data['view_file'] = "users_error_profile";
+	
+		echo Modules::run('template/javnaSekcija', $data);
+	}else{
+		$id = $this->session->userdata('id');
+		
+		$pass = $this->input->post('new_pass', TRUE);
+		
+		
+	
+		$this->load->model('mdl_users');
+		$data['password'] = $this->mdl_users->salt($pass);
+		$this->mdl_users->_update($id, $data);
+		redirect('users/profile');
+	}
+	
+}
+function check_pass(){
+	$id = $this->session->userdata('id');
+	$old = $this->input->post('old_pass', TRUE);
+	$this->load->model('mdl_users');
+	if($this->mdl_users->check_pass($id , $old)){
+		return TRUE;
+	}else{
+		return FALSE;
+	}
+}
+function check_passwords(){
+	$pass1 = $this->input->post('new_pass');
+	$pass2 = $this->input->post('conf_pass');
+	
+	if($pass1 == $pass2){
+		return TRUE;
+	}else{
+		return FALSE;
+	}
+}
 }

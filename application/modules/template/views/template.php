@@ -50,7 +50,7 @@
             <li><a href="#"><?php echo $this->lang->line('oMeni');?></a></li>
             <li><a href="#"><?php echo $this->lang->line('usluge');?></a></li>
             <li><a href="#"><?php echo $this->lang->line('portfolio');?></a></li>
-            <li><a href="#"><?php echo $this->lang->line('shop');?></a></li>
+            
             <li><a href="#"><?php echo $this->lang->line('kontakt');?></a></li>
             <li><?php echo($user_lagnguage == "srpski")? anchor('template/englishVersion', '<img src="' . base_url() .'Nemesis Development responsive/img/english_ikonica.png" alt="english version of site" title="English Version" />') : anchor('template/serbianVersion', '<img src="'.base_url().'Nemesis Development responsive/img/srbija_ikonica.png" alt="serbian version of site" title="Serbian Version" />') ;   ?></li>
 
@@ -156,7 +156,7 @@
             <li><a href="#" target="_blank"><?php echo $this->lang->line('footer_linkovi_oMeni');?></a></li>
             <li><a href="#" target="_blank"><?php echo $this->lang->line('footer_linkovi_usluge');?></a></li>
             <li><a href="#" target="_blank"><?php echo $this->lang->line('footer_linkovi_portfolio');?></a></li>
-            <li><a href="#" target="_blank"><?php echo $this->lang->line('footer_linkovi_shop');?></a></li>
+            
             <li><a href="#" target="_blank"><?php echo $this->lang->line('footer_linkovi_kontakt');?></a></li>
 
         </ul></nav>
